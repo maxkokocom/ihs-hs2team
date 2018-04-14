@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['28ce95c9.ngrok.io']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -66,7 +65,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ihs_django_app.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -163,6 +161,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'link',
             'gender',
             'updated_time',
+            'friends',
         ],
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': lambda request: 'en_US',
@@ -178,3 +177,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
