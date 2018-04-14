@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,5 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-
-
 }
 

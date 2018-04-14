@@ -1,10 +1,14 @@
 PODS:
+  - Alamofire (4.6.0)
+  - Argo (4.1.2):
+    - Runes (>= 4.0.0)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Curry (3.0.0)
   - FacebookCore (0.3.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.27)
@@ -24,21 +28,72 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.29.0):
     - FBSDKCoreKit
+  - KeychainSwift (10.0.0)
+  - Moya (10.0.0):
+    - Moya/Core (= 10.0.0)
+  - Moya-Argo (4.0.0):
+    - Moya-Argo/Core (= 4.0.0)
+  - Moya-Argo/Core (4.0.0):
+    - Argo (~> 4.1.2)
+    - Moya (~> 10.0.0)
+  - Moya/Core (10.0.0):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Result (3.2.4)
+  - Runes (4.1.0)
+  - SwiftDate (4.5.1)
+  - SwiftyJSON (3.1.1)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
+  - Argo
+  - Curry (= 3.0.0)
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - KeychainSwift
+  - Moya (from `https://github.com/Moya/Moya.git`, tag `10.0.0`)
+  - Moya-Argo (from `https://github.com/wattson12/Moya-Argo`, tag `4.0.0`)
+  - SwiftDate
+  - SwiftyJSON (= 3.1.1)
+  - Toast-Swift (~> 3.0.1)
+
+EXTERNAL SOURCES:
+  Moya:
+    :git: https://github.com/Moya/Moya.git
+    :tag: 10.0.0
+  Moya-Argo:
+    :git: https://github.com/wattson12/Moya-Argo
+    :tag: 4.0.0
+
+CHECKOUT OPTIONS:
+  Moya:
+    :git: https://github.com/Moya/Moya.git
+    :tag: 10.0.0
+  Moya-Argo:
+    :git: https://github.com/wattson12/Moya-Argo
+    :tag: 4.0.0
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Argo: 5db06502fc1222d83011f574243089dab25202ff
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Curry: eb3d2c75aec678b3cc7fb2729d2ad6dd121531d1
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
   FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
+  KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
+  Moya: 084e6de3a6910fb69f845104aa38c883947dad1e
+  Moya-Argo: 8822b547bcf8141c34546a2e888c23daed5d77e3
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  Runes: 72a67a5bbbe1b5fdae08b5a01b10c60d83fc69aa
+  SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: a92d547fef6652ea86e14ec7b1c51c8de3af73b8
+PODFILE CHECKSUM: c7db43c490e43f80a8b2175a7805edb94d16b3e1
 
 COCOAPODS: 1.3.1

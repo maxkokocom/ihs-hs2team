@@ -15,6 +15,20 @@ extension LoginViewController: LoginButtonDelegate {
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         
         print("Did complete login via LoginButton with result \(result)")
+        
+        let alertController: UIAlertController
+        switch result {
+        case .cancelled:
+            alertController = UIAlertController(title: "Login Cancelled", message: "User cancelled login.", preferredStyle: .alert)
+            present(alertController, animated: true, completion: nil)
+        case .failed(let error):
+            alertController = UIAlertController(title: "Login Fail", message: "Login failed with error \(error)", preferredStyle: .alert)
+            present(alertController, animated: true, completion: nil)
+        case .success(let grantedPermissions, _, _):
+
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+            present(vc!, animated: true)
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
@@ -25,7 +39,9 @@ extension LoginViewController: LoginButtonDelegate {
 
 class LoginViewController: UIViewController  {
     
-    override func viewDidLoad() {
+    var vc: UIViewController? = nil
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
         loginButton.delegate = self
