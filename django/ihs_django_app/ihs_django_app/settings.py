@@ -163,6 +163,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'link',
             'gender',
             'updated_time',
+            'friends',
         ],
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': lambda request: 'en_US',
@@ -178,3 +179,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
