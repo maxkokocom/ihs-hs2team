@@ -22,6 +22,9 @@
 		446E34B6208218A600095209 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446E34B5208218A600095209 /* HealthKitManager.swift */; };
 		446E34B820822E0D00095209 /* Synchronization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446E34B720822E0D00095209 /* Synchronization.swift */; };
 		446E34BA20822F8A00095209 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446E34B920822F8A00095209 /* Session.swift */; };
+		446E34BC208238E500095209 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446E34BB208238E500095209 /* Friends.swift */; };
+		446E34BE208247EC00095209 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446E34BD208247EC00095209 /* FriendCell.xib */; };
+		446E34C12082630800095209 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446E34C02082630800095209 /* HealthKit.framework */; };
 		5095D15A61815DF0D3BE02D4 /* Pods_ihs_hackathon_hs2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2675CF522563C7799A66728 /* Pods_ihs_hackathon_hs2.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,10 @@
 		446E34B5208218A600095209 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		446E34B720822E0D00095209 /* Synchronization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synchronization.swift; sourceTree = "<group>"; };
 		446E34B920822F8A00095209 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		446E34BB208238E500095209 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		446E34BD208247EC00095209 /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		446E34BF2082630700095209 /* ihs-hackathon-hs2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ihs-hackathon-hs2.entitlements"; sourceTree = "<group>"; };
+		446E34C02082630800095209 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CE820E89AF0886B8ED43B8B5 /* Pods-ihs-hackathon-hs2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ihs-hackathon-hs2.release.xcconfig"; path = "Pods/Target Support Files/Pods-ihs-hackathon-hs2/Pods-ihs-hackathon-hs2.release.xcconfig"; sourceTree = "<group>"; };
 		E2675CF522563C7799A66728 /* Pods_ihs_hackathon_hs2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ihs_hackathon_hs2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -53,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446E34C12082630800095209 /* HealthKit.framework in Frameworks */,
 				446E34AA2082067000095209 /* FBSDKLoginKit.framework in Frameworks */,
 				5095D15A61815DF0D3BE02D4 /* Pods_ihs_hackathon_hs2.framework in Frameworks */,
 			);
@@ -82,10 +90,12 @@
 		446E34932081EBFF00095209 /* ihs-hackathon-hs2 */ = {
 			isa = PBXGroup;
 			children = (
+				446E34BF2082630700095209 /* ihs-hackathon-hs2.entitlements */,
 				446E34B22082126800095209 /* Networking & Models */,
 				446E34942081EBFF00095209 /* AppDelegate.swift */,
 				446E34962081EBFF00095209 /* FirstViewController.swift */,
 				446E34982081EBFF00095209 /* SecondViewController.swift */,
+				446E34BD208247EC00095209 /* FriendCell.xib */,
 				446E34A8208204A500095209 /* LoginViewController.swift */,
 				446E349A2081EBFF00095209 /* Main.storyboard */,
 				446E349D2081EBFF00095209 /* Assets.xcassets */,
@@ -105,6 +115,7 @@
 				446E34B32082127100095209 /* Authentication.swift */,
 				446E34B720822E0D00095209 /* Synchronization.swift */,
 				446E34AC20820AF100095209 /* FriendsWorkoutAPI.swift */,
+				446E34BB208238E500095209 /* Friends.swift */,
 			);
 			path = "Networking & Models";
 			sourceTree = "<group>";
@@ -112,6 +123,7 @@
 		9E9627033C0D243C854D1419 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				446E34C02082630800095209 /* HealthKit.framework */,
 				446E34AB2082067000095209 /* FBSDKLoginKit.framework */,
 				E2675CF522563C7799A66728 /* Pods_ihs_hackathon_hs2.framework */,
 			);
@@ -163,6 +175,11 @@
 					446E34902081EBFF00095209 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -192,6 +209,7 @@
 				446E34A12081EBFF00095209 /* LaunchScreen.storyboard in Resources */,
 				446E349E2081EBFF00095209 /* Assets.xcassets in Resources */,
 				446E349C2081EBFF00095209 /* Main.storyboard in Resources */,
+				446E34BE208247EC00095209 /* FriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +236,7 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-Argo/Moya_Argo.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Runes/Runes.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
@@ -239,6 +258,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_Argo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Runes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
@@ -297,6 +317,7 @@
 				446E34B12082119900095209 /* Config.swift in Sources */,
 				446E34952081EBFF00095209 /* AppDelegate.swift in Sources */,
 				446E34972081EBFF00095209 /* FirstViewController.swift in Sources */,
+				446E34BC208238E500095209 /* Friends.swift in Sources */,
 				446E34BA20822F8A00095209 /* Session.swift in Sources */,
 				446E34AF2082110000095209 /* Utils.swift in Sources */,
 				446E34B42082127100095209 /* Authentication.swift in Sources */,
@@ -438,9 +459,11 @@
 			baseConfigurationReference = 3F9222984085222BF94EA3E8 /* Pods-ihs-hackathon-hs2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ihs-hackathon-hs2/ihs-hackathon-hs2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q4B4T2SEU;
 				INFOPLIST_FILE = "ihs-hackathon-hs2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hs2.ihs-hackathon-hs2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,9 +477,11 @@
 			baseConfigurationReference = CE820E89AF0886B8ED43B8B5 /* Pods-ihs-hackathon-hs2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ihs-hackathon-hs2/ihs-hackathon-hs2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q4B4T2SEU;
 				INFOPLIST_FILE = "ihs-hackathon-hs2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hs2.ihs-hackathon-hs2";
 				PRODUCT_NAME = "$(TARGET_NAME)";

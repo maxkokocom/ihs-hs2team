@@ -30,8 +30,10 @@ extension LoginViewController: LoginButtonDelegate {
             present(alertController, animated: true, completion: nil)
         case .success(let grantedPermissions, _, _):
 
-            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
-            present(vc!, animated: true)
+//            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+//            present(vc!, animated: true)
+
+            performSegue(withIdentifier: "toMain", sender: self)
         }
     }
     
@@ -46,11 +48,13 @@ class LoginViewController: UIViewController  {
     var vc: UIViewController? = nil
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        performSegue(withIdentifier: "toMain", sender: self)
 
-        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
-        loginButton.delegate = self
-        loginButton.center = view.center
-        view.addSubview(loginButton)
+//        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
+//        loginButton.delegate = self
+//        loginButton.center = view.center
+//        view.addSubview(loginButton)
     }
 }
 

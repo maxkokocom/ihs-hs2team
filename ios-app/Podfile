@@ -9,7 +9,8 @@ target 'ihs-hackathon-hs2' do
   pod 'SwiftDate'
   pod 'KeychainSwift'
   pod 'Toast-Swift', '~> 3.0.1'
-  
+  pod 'Nuke'
+
   # Social
   pod 'FacebookCore'
   pod 'FacebookLogin'

@@ -39,6 +39,7 @@ PODS:
   - Moya/Core (10.0.0):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Nuke (6.0)
   - Result (3.2.4)
   - Runes (4.1.0)
   - SwiftDate (4.5.1)
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - KeychainSwift
   - Moya (from `https://github.com/Moya/Moya.git`, tag `10.0.0`)
   - Moya-Argo (from `https://github.com/wattson12/Moya-Argo`, tag `4.0.0`)
+  - Nuke
   - SwiftDate
   - SwiftyJSON (= 3.1.1)
   - Toast-Swift (~> 3.0.1)
@@ -88,12 +90,13 @@ SPEC CHECKSUMS:
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
   Moya: 084e6de3a6910fb69f845104aa38c883947dad1e
   Moya-Argo: 8822b547bcf8141c34546a2e888c23daed5d77e3
+  Nuke: d83812262734dad51e3c498cb1c4f7923f2b78c6
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   Runes: 72a67a5bbbe1b5fdae08b5a01b10c60d83fc69aa
   SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: c7db43c490e43f80a8b2175a7805edb94d16b3e1
+PODFILE CHECKSUM: c7770cfa5c9d465cfdb05893c34ee0cc47694174
 
 COCOAPODS: 1.3.1
