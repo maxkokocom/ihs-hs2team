@@ -6,8 +6,20 @@ target 'ihs-hackathon-hs2' do
   use_frameworks!
 
   # Pods for ihs-hackathon-hs2
+  pod 'SwiftDate'
+  pod 'KeychainSwift'
+  pod 'Toast-Swift', '~> 3.0.1'
+  
+  # Social
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+
+  # Networking
+  pod 'Moya-Argo', :git => 'https://github.com/wattson12/Moya-Argo', :tag => '4.0.0'
+  pod 'Moya', :git => 'https://github.com/Moya/Moya.git', :tag => '10.0.0'
+  pod 'Curry', '3.0.0'
+  pod 'SwiftyJSON', '= 3.1.1'
+  pod 'Argo'
 
 end
