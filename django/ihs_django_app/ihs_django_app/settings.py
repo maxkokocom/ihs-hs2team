@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['28ce95c9.ngrok.io']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -66,7 +65,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ihs_django_app.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
