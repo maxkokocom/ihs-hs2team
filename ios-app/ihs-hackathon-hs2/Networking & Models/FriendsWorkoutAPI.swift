@@ -41,7 +41,7 @@ enum FriendsWorkoutAPI {
     
     case Forget( email: String )
     
-    case Login( email: String, password: String )
+    case Login( access_token: String )
     
     case Register( email: String, password: String )
 }
@@ -65,8 +65,8 @@ private func canRefreshAccessToken() -> Bool {
 
 func defaultRequest( aidlab: FriendsWorkoutAPI, progress: ProgressBlock?, completion: @escaping Completion ) -> Cancellable {
     
-    //let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: nil)])
-    let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [])
+    let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: nil)])
+    //let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [])
     
     return defaultFriendsWorkoutAPIProvider.request(aidlab, callbackQueue: DispatchQueue.main, progress: progress, completion: { result in
         
@@ -121,7 +121,7 @@ func refreshAccessToken( completion: @escaping ((_ success: Bool) -> Void) ) {
     KeychainSwift().delete(KeychainKeys.email.rawValue)
     KeychainSwift().delete(KeychainKeys.password.rawValue)
     
-    _ = defaultRequest(aidlab: .Login(email: email, password: password), completion: { result in
+    _ = defaultRequest(aidlab: .Login(access_token: ""), completion: { result in
         
         if case let .success(response) = result {
             
@@ -176,7 +176,7 @@ extension FriendsWorkoutAPI: TargetType {
         case .Forget:
             return "/forget"
         case .Login:
-            return "/login"
+            return "/facebook/login"
         case .Register:
             return "/register"
         }
@@ -230,8 +230,8 @@ extension FriendsWorkoutAPI: TargetType {
             return .requestPlain
        case .Forget(let email):
             return .requestParameters(parameters:["email": email], encoding: JSONEncoding.default)
-        case .Login(let email, let password):
-            return .requestParameters(parameters:["email": email, "password": password], encoding: JSONEncoding.default)
+        case .Login(let access_token):
+            return .requestParameters(parameters:["access_token": access_token], encoding: JSONEncoding.default)
         case .Register(let email, let password):
             return .requestParameters(parameters:["email": email, "password": password], encoding: JSONEncoding.default)
         case .PostSession( let session ):

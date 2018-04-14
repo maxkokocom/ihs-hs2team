@@ -118,9 +118,7 @@ class HealthKitManager {
         HealthKitManager.healthKitStore.execute(query)
     }
     
-    //-- Private ----------------------------------------
-    
-    private func authorizeHealthKit(_ completion: @escaping (_ success: Bool, _ error: Error?) -> Void!) {
+    func authorizeHealthKit(_ completion: @escaping (_ success: Bool, _ error: Error?) -> Void!) {
         
         // If the store is not available (for instance, iPad) return an error and don't go on.
         if HKHealthStore.isHealthDataAvailable() {
@@ -138,6 +136,8 @@ class HealthKitManager {
             print("Health data unavailable")
         }
     }
+    
+    //-- Private ----------------------------------------
     
     private static let healthKitStore: HKHealthStore = HKHealthStore()
     

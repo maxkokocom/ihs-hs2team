@@ -28,12 +28,11 @@ extension LoginViewController: LoginButtonDelegate {
             let actionOk = UIAlertAction(title: "Yes", style: .default, handler: nil )
             alertController.addAction( actionOk )
             present(alertController, animated: true, completion: nil)
-        case .success(let grantedPermissions, _, _):
+        case .success(let grantedPermissions, _, let token):
+            
+            print("Success!")
 
-//            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
-//            present(vc!, animated: true)
-
-            performSegue(withIdentifier: "toMain", sender: self)
+            login(token: token.authenticationToken)
         }
     }
     
@@ -48,13 +47,33 @@ class LoginViewController: UIViewController  {
     var vc: UIViewController? = nil
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        performSegue(withIdentifier: "toMain", sender: self)
 
-//        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
-//        loginButton.delegate = self
-//        loginButton.center = view.center
-//        view.addSubview(loginButton)
+        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
+        loginButton.delegate = self
+        loginButton.center = view.center
+        view.addSubview(loginButton)
+    }
+    
+    func login( token: String ) {
+        
+        _ = defaultRequest(aidlab: .Login(access_token: token), completion: { result in
+            
+            print(result)
+            
+            if case let .success(response) = result {
+                
+                if 200 ... 299 ~= response.statusCode {
+                    
+                    print(response)
+                    
+                    self.performSegue(withIdentifier: "toMain", sender: self)
+                }
+                
+            } else if case let .failure(error) = result {
+                
+                print("Error: \(error)")
+            }
+        })
     }
 }
 

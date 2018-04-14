@@ -231,6 +231,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="lastWeekDistanceLabel" destination="o7U-A4-ePK" id="Yb3-W2-GHe"/>
+                        <outlet property="lastWeekFloorsLabel" destination="LOI-mr-Lpq" id="e4s-2w-gYv"/>
+                        <outlet property="lastWeekStepsLabel" destination="81N-IP-dyF" id="gF5-Tt-CVu"/>
                         <outlet property="thisWeekDistanceLabel" destination="FzW-fj-pgd" id="muE-at-QGx"/>
                         <outlet property="thisWeekFloorsLabel" destination="Xcw-BD-9kY" id="gZU-TP-oFy"/>
                         <outlet property="thisWeekStepsLabel" destination="u1f-HT-Fu2" id="xGT-Eq-ATJ"/>

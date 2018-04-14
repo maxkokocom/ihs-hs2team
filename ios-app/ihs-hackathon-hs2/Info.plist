@@ -2,26 +2,32 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb2032947536921048</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>2032947536921048</string>
-    <key>FacebookDisplayName</key>
-    <string>ihs-hs2team - Test1</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
+    <key>NSHealthShareUsageDescription</key>
+    <string>FriendsWorkout asks for access to your medical data to provide more precise information about your health</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>FriendsWorkout asks for permission to save medical data, so that you could share your measurements with medical doctor</string>
+    <key>NSMotionUsageDescription</key>
+    <string>We are collecting motion data to track user's progress at fulfillment of goals.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb2032947536921048</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>2032947536921048</string>
+	<key>FacebookDisplayName</key>
+	<string>ihs-hs2team - Test1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -46,6 +52,7 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>healthkit</string>
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarTintParameters</key>
