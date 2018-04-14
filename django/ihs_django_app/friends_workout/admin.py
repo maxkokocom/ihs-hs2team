@@ -1,3 +1,9 @@
 from django.contrib import admin
+from friends_workout.models import StepSessions
 
-# Register your models here.
+
+class StepSessionsAdmin(admin.ModelAdmin):
+    pass
+
+admin.register(StepSessions, StepSessionsAdmin)
+# admin.site.register(StepSessions, StepSessionsAdmin)
