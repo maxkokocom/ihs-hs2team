@@ -37,7 +37,7 @@ enum FriendsWorkoutAPI {
     /// Not used
     case Me()
     
-    case PostSession( encodedSession: Data )
+    case PostSession( session: Session )
     
     case Forget( email: String )
     
@@ -235,8 +235,7 @@ extension FriendsWorkoutAPI: TargetType {
         case .Register(let email, let password):
             return .requestParameters(parameters:["email": email, "password": password], encoding: JSONEncoding.default)
         case .PostSession( let session ):
-            let data: [MultipartFormData] = [MultipartFormData(provider: .data(session), name: "", fileName: "session.json", mimeType: "application/json")]
-            return .uploadMultipart(data)
+            return .requestParameters(parameters: session.encode(), encoding: JSONEncoding.default)
         }
     }
 }
