@@ -10,5 +10,5 @@ import Foundation
 
 class Config {
 
-    static let FriendsWorkoutAPIBaseURL = "https://28ce95c9.ngrok.io/api-v1"
+    static let FriendsWorkoutAPIBaseURL = "https://28ce95c9.ngrok.io"
 }

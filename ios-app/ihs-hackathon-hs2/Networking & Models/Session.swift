@@ -50,7 +50,7 @@ struct Session: Argo.Decodable {
         
         var result: [String: AnyObject] = ["startDate": startDate.iso8601() as AnyObject, "endDate": endDate.iso8601() as AnyObject]
         
-        if let steps = steps { result["steps"] = steps as AnyObject }
+       // if let steps = steps { result["steps"] = "30" as AnyObject }
         
         return result
     }

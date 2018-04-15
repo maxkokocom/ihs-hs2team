@@ -16,9 +16,15 @@ class AuthenticationModel {
     
     func logout() {} /// TODO
     
-    func token() -> String { return "" } /// TODO
+    func token() -> String? {
+        
+        return KeychainSwift().get("token")
+    }
     
-    func setToken(token: String) {} /// TODO
+    func setToken(token: String) {
+        
+        KeychainSwift().set(token, forKey: "token")
+    }
 }
 
 enum KeychainKeys: String {
@@ -65,7 +71,7 @@ private func canRefreshAccessToken() -> Bool {
 
 func defaultRequest( aidlab: FriendsWorkoutAPI, progress: ProgressBlock?, completion: @escaping Completion ) -> Cancellable {
     
-    let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: nil)])
+    let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: nil)])
     //let defaultFriendsWorkoutAPIProvider = MoyaProvider<FriendsWorkoutAPI>(endpointClosure: endpointClosure, plugins: [])
     
     return defaultFriendsWorkoutAPIProvider.request(aidlab, callbackQueue: DispatchQueue.main, progress: progress, completion: { result in
@@ -172,11 +178,11 @@ extension FriendsWorkoutAPI: TargetType {
         case .Me:
             return "/users/me"
         case .PostSession:
-            return "/sessions"
+            return "/api-v1/sessions/"
         case .Forget:
             return "/forget"
         case .Login:
-            return "/facebook/login"
+            return "/api-v1/rest-auth/facebook/login/"
         case .Register:
             return "/register"
         }
@@ -189,7 +195,7 @@ extension FriendsWorkoutAPI: TargetType {
         case .Login, .Register:
             return [:]
         default:
-            return ["Authorization": "Bearer " + (authenticationModel.token() ?? "")]
+            return ["Authorization": "Token " + (authenticationModel.token() ?? "")]
         }
     }
     
@@ -231,10 +237,11 @@ extension FriendsWorkoutAPI: TargetType {
        case .Forget(let email):
             return .requestParameters(parameters:["email": email], encoding: JSONEncoding.default)
         case .Login(let access_token):
-            return .requestParameters(parameters:["access_token": access_token], encoding: JSONEncoding.default)
+            return .requestParameters(parameters:["access_token": access_token, "code": ""], encoding: JSONEncoding.default)
         case .Register(let email, let password):
             return .requestParameters(parameters:["email": email, "password": password], encoding: JSONEncoding.default)
         case .PostSession( let session ):
+            print(session.encode())
             return .requestParameters(parameters: session.encode(), encoding: JSONEncoding.default)
         }
     }

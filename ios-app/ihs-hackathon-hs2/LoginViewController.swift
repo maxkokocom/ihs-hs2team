@@ -48,25 +48,38 @@ class LoginViewController: UIViewController  {
     
     override func viewDidAppear(_ animated: Bool) {
 
-        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
-        loginButton.delegate = self
-        loginButton.center = view.center
-        view.addSubview(loginButton)
+        self.performSegue(withIdentifier: "toMain", sender: self)
+//        
+//        if AuthenticationModel().token() == nil {
+//            let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
+//            loginButton.delegate = self
+//            loginButton.center = view.center
+//            view.addSubview(loginButton)
+//        } else {
+//            self.performSegue(withIdentifier: "toMain", sender: self)
+//        }
     }
     
     func login( token: String ) {
         
         _ = defaultRequest(aidlab: .Login(access_token: token), completion: { result in
             
-            print(result)
-            
             if case let .success(response) = result {
                 
                 if 200 ... 299 ~= response.statusCode {
                     
-                    print(response)
+                    do {
+                    let key = try response.mapObject(rootKey: "key") as String
+                        
+                        AuthenticationModel().setToken(token: key)
+                        
+                        self.performSegue(withIdentifier: "toMain", sender: self)
+                        print(key)
+                    }
+                    catch let error {
+                        print(error)
+                    }
                     
-                    self.performSegue(withIdentifier: "toMain", sender: self)
                 }
                 
             } else if case let .failure(error) = result {

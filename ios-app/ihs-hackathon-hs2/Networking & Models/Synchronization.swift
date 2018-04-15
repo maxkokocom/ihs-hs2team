@@ -17,17 +17,22 @@ class Synchronization {
     }
     
     func synchronize() {
+
+        let session = Session(startDate: Date()-1.week, endDate: Date(), steps: 49132)
+        send( session: session )
         
-        Session.getSession( lastSessionDate: lastSessionDate(), completion: { session in
-            
-            if let session = session {
-                
-                send( session: session )
-            }
-        })
+//        Session.getSession( lastSessionDate: lastSessionDate(), completion: { session in
+//
+//            if let session = session {
+//
+//                print(session)
+//
+//                send( session: session )
+//            }
+//        })
     }
     
-    func lastSessionDate() -> Date {
+    private func lastSessionDate() -> Date {
         
         return Date()
     }

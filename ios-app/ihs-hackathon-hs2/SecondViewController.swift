@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Nuke
+import SwiftDate
 
 class FriendCell: UITableViewCell {
     
@@ -40,6 +41,32 @@ extension UIColor {
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBAction func segmentDidChange( value: UISegmentedControl ) {
+    
+        let startDate: Date
+        let endDate: Date
+        
+        let index = value.selectedSegmentIndex
+        
+        if index == 0 {
+            
+            startDate = Date().startWeek
+            endDate = Date().endWeek
+            
+        } else {
+            
+            startDate = (Date() - 1.weeks).startWeek
+            endDate = (Date() - 1.weeks).endWeek
+        }
+        
+        Friend.getFriendsHallOfFame(startDate: startDate, endDate: endDate, category: "steps") { (friends) in
+            
+            self.friends = friends
+            
+            self.tableView?.reloadData()
+        }
+    }
+    
     @IBOutlet var tableView: UITableView?
 
     var friends: [Friend] = []
@@ -51,7 +78,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidAppear(_ animated: Bool) {
         
-//        super.viewDidAppear(animated)
         Friend.getFriendsHallOfFame(startDate: Date(), endDate: Date(), category: "") { (friends) in
 
             self.friends = friends

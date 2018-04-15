@@ -47,6 +47,8 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         
         authorizeHealthkitAndUpdateData()
+        
+        Synchronization().synchronize()
     }
     
     private func updateData() {
