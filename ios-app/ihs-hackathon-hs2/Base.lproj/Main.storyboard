@@ -11,7 +11,9 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
             <string>AvenirNext-Heavy</string>
+            <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -252,7 +254,45 @@
                     <view key="view" contentMode="scaleToFill" id="e5h-v0-M0K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing-page" translatesAutoresizingMaskIntoConstraints="NO" id="kmM-vA-bU5">
+                                <rect key="frame" x="16" y="20" width="343" height="159.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kmM-vA-bU5" secondAttribute="height" multiplier="1958:910" id="f5r-Dn-j6I"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-ZV-XY8">
+                                <rect key="frame" x="66" y="203.5" width="243" height="44"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compare workouts with your friends to stay motivated" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K2-YP-dKk">
+                                <rect key="frame" x="32" y="255.5" width="311" height="60.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms          Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqY-iD-atb">
+                                <rect key="frame" x="91.5" y="613" width="192.5" height="22"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93497458290546498" green="0.6498363742042601" blue="0.59644908530555019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="h8c-ZV-XY8" firstAttribute="top" secondItem="kmM-vA-bU5" secondAttribute="bottom" constant="24" id="3hv-az-wQy"/>
+                            <constraint firstItem="kmM-vA-bU5" firstAttribute="leading" secondItem="kdz-nt-nrH" secondAttribute="leading" constant="16" id="E75-h7-cWV"/>
+                            <constraint firstItem="h8c-ZV-XY8" firstAttribute="centerX" secondItem="kdz-nt-nrH" secondAttribute="centerX" id="FXa-jP-Im1"/>
+                            <constraint firstItem="kdz-nt-nrH" firstAttribute="bottom" secondItem="OqY-iD-atb" secondAttribute="bottom" constant="32" id="OQ7-Eb-UEl"/>
+                            <constraint firstItem="kmM-vA-bU5" firstAttribute="top" secondItem="kdz-nt-nrH" secondAttribute="top" id="bDY-eU-mm0"/>
+                            <constraint firstItem="8K2-YP-dKk" firstAttribute="top" secondItem="h8c-ZV-XY8" secondAttribute="bottom" constant="8" id="bjD-ya-p4b"/>
+                            <constraint firstItem="kdz-nt-nrH" firstAttribute="trailing" secondItem="kmM-vA-bU5" secondAttribute="trailing" constant="16" id="g6S-nI-Uhr"/>
+                            <constraint firstItem="OqY-iD-atb" firstAttribute="centerX" secondItem="kdz-nt-nrH" secondAttribute="centerX" id="ntk-NL-yy9"/>
+                            <constraint firstItem="8K2-YP-dKk" firstAttribute="trailing" secondItem="kdz-nt-nrH" secondAttribute="trailing" constant="-32" id="tBe-of-hM7"/>
+                            <constraint firstItem="kdz-nt-nrH" firstAttribute="leading" secondItem="8K2-YP-dKk" secondAttribute="leading" constant="-32" id="tIf-z3-beX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kdz-nt-nrH"/>
                     </view>
                     <connections>
@@ -261,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rih-kY-QuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-849" y="0.0"/>
+            <point key="canvasLocation" x="-850.39999999999998" y="-0.44977511244377816"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -284,5 +324,6 @@
     </scenes>
     <resources>
         <image name="crown" width="226" height="146"/>
+        <image name="landing-page" width="1958" height="910"/>
     </resources>
 </document>

@@ -48,16 +48,21 @@ class LoginViewController: UIViewController  {
     
     override func viewDidAppear(_ animated: Bool) {
 
-        self.performSegue(withIdentifier: "toMain", sender: self)
-//        
-//        if AuthenticationModel().token() == nil {
-//            let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
-//            loginButton.delegate = self
-//            loginButton.center = view.center
-//            view.addSubview(loginButton)
-//        } else {
-//            self.performSegue(withIdentifier: "toMain", sender: self)
-//        }
+        //self.performSegue(withIdentifier: "toMain", sender: self)
+        
+        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
+        loginButton.delegate = self
+        loginButton.center = view.center
+        view.addSubview(loginButton)
+        
+        if AuthenticationModel().token() == nil {
+            let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends, .userPhotos ])
+            loginButton.delegate = self
+            loginButton.center = view.center
+            view.addSubview(loginButton)
+        } else {
+            //self.performSegue(withIdentifier: "toMain", sender: self)
+        }
     }
     
     func login( token: String ) {

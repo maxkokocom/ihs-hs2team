@@ -16,6 +16,7 @@ class FriendCell: UITableViewCell {
     static let identifier: String = "FriendCell"
     
     @IBOutlet var avatar: UIImageView!
+    @IBOutlet var crown: UIImageView!
     @IBOutlet var value: UILabel!
     @IBOutlet var fullname: UILabel!
     
@@ -40,9 +41,9 @@ extension UIColor {
 }
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBAction func segmentDidChange( value: UISegmentedControl ) {
     
+    @IBAction func segmentDidChange( value: UISegmentedControl ) {
+        
         let startDate: Date
         let endDate: Date
         
@@ -68,7 +69,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBOutlet var tableView: UITableView?
-
+    
     var friends: [Friend] = []
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,7 +80,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         
         Friend.getFriendsHallOfFame(startDate: Date(), endDate: Date(), category: "") { (friends) in
-
+            
             self.friends = friends
             
             self.tableView?.reloadData()
@@ -107,7 +108,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 Nuke.loadImage(with: url, into: cell.avatar!)
             }
             
-            if (indexPath.row % 2 == 0) {
+            cell.crown.isHidden = indexPath.row != 0
+            
+            if indexPath.row % 2 == 0 {
                 cell.backgroundColor = UIColor.white
             } else {
                 cell.backgroundColor = UIColor(red: 252.0/255.0, green: 252.0/255.0, blue: 255.0/255.0, alpha: 255.0/255.0)
@@ -118,13 +121,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return UITableViewCell()
     }
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         if let tableView = tableView {
-      
+            
             let nib = UINib(nibName: "FriendCell", bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: FriendCell.identifier)
         }

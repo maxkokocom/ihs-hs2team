@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,6 +43,14 @@
                         <color key="textColor" red="0.031372549019607843" green="0.039215686274509803" blue="0.23529411764705882" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown" translatesAutoresizingMaskIntoConstraints="NO" id="VKW-Wu-Cod">
+                        <rect key="frame" x="254.5" y="28" width="12.5" height="8"/>
+                        <color key="tintColor" red="0.83081597220000003" green="0.80572916670000005" blue="0.23529411759999999" alpha="0.93228216239999995" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="VKW-Wu-Cod" secondAttribute="height" multiplier="113:73" id="67c-Pg-Thn"/>
+                            <constraint firstAttribute="height" constant="8" id="ZSy-Wv-7Hc"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Wsp-dz-5Si" firstAttribute="leading" secondItem="5Rd-9a-7UZ" secondAttribute="leading" id="73M-rN-Jnp"/>
@@ -52,15 +59,21 @@
                     <constraint firstItem="7hl-Ec-xtD" firstAttribute="leading" secondItem="lZb-wn-RWI" secondAttribute="leading" constant="16" id="Xu5-b0-Wt0"/>
                     <constraint firstItem="5Rd-9a-7UZ" firstAttribute="leading" secondItem="7hl-Ec-xtD" secondAttribute="trailing" constant="25" id="g6e-vT-gkx"/>
                     <constraint firstItem="Wsp-dz-5Si" firstAttribute="bottom" secondItem="7hl-Ec-xtD" secondAttribute="bottom" id="ihN-6l-5fy"/>
+                    <constraint firstAttribute="trailing" secondItem="VKW-Wu-Cod" secondAttribute="trailing" constant="24" id="u5X-2c-U9K"/>
                     <constraint firstItem="7hl-Ec-xtD" firstAttribute="centerY" secondItem="lZb-wn-RWI" secondAttribute="centerY" id="vf5-pJ-JRR"/>
+                    <constraint firstItem="VKW-Wu-Cod" firstAttribute="centerY" secondItem="lZb-wn-RWI" secondAttribute="centerY" id="x3k-hs-hNT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatar" destination="7hl-Ec-xtD" id="ZfE-QL-Tb0"/>
+                <outlet property="crown" destination="VKW-Wu-Cod" id="6xU-vP-XVA"/>
                 <outlet property="fullname" destination="5Rd-9a-7UZ" id="8Ou-Z5-YWt"/>
                 <outlet property="value" destination="Wsp-dz-5Si" id="yCC-o4-kaq"/>
             </connections>
             <point key="canvasLocation" x="-64.5" y="30"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="crown" width="226" height="146"/>
+    </resources>
 </document>
